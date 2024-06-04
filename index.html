@@ -1,0 +1,48 @@
+<html>
+    <head>Dark/Light Mode</head>
+    <style>
+        body{
+            padding: 25px;
+            background-color: white;
+            color: black;
+            font-size: 25px;
+        }
+        .dark-mode{
+            background-color: black;
+            color:white;
+        }
+    </style>
+    <body>
+        <h1>Dark/light Mode</h1>
+        <div>
+            <h2>Please click on button to change Mode</h2>
+            <button onclick = "DarkLight()">Mode</button>
+        </div>
+
+        <script>
+            function DarkLight(){
+                var ele = document.body
+                ele.classList.toggle("dark-mode")
+
+                 // save to local storage
+                if(ele.classList.contains("dark-mode")){
+                    localStorage.setItem("mode","dark")
+                }else{
+                    localStorage.setItem("mode","light")
+                }
+            }
+
+            // function to load the mode reference from local storage
+
+            function loadMode(){
+                var mode = localStorage.getItem("mode")
+                if(mode=="dark"){
+                    document.body.classList.add("dark-mode")
+                }
+            }
+           
+            window.onload = loadMode;
+            // 
+        </script>
+    </body>
+</html>
